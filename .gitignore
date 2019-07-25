@@ -2,7 +2,7 @@
 .envrc
 .DS_Store
 postgres_data
-
+/response/static
 __pycache__
 /static/
 db.sqlite3

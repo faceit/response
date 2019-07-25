@@ -25,6 +25,8 @@ wait_for_db
 
 echo "[INFO] Migrating database"
 cd /app
+python3 manage.py collectstatic --noinput
+
 python3 manage.py migrate --noinput
 
 echo "[INFO] Creating Admin User"
