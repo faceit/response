@@ -14,7 +14,7 @@ from django.contrib.auth import get_user_model
 from django.db.utils import IntegrityError
 User = get_user_model()
 try:
-    User.objects.create_superuser('admin', '', 'admin')
+    User.objects.create_superuser('admin', '', '${DJANGO_ADMIN_PASSWORD:-admin}')
 except IntegrityError:
     pass
 EOF
@@ -26,7 +26,6 @@ wait_for_db
 echo "[INFO] Migrating database"
 cd /app
 python3 manage.py collectstatic --noinput
-
 python3 manage.py migrate --noinput
 
 echo "[INFO] Creating Admin User"
